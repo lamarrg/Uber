@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JS5-kO-xdA">
-                                <rect key="frame" x="134" y="359" width="106" height="30"/>
+                                <rect key="frame" x="102" y="355" width="170" height="30"/>
                                 <state key="normal" title="Switch to Login"/>
                                 <connections>
                                     <action selector="toggleSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wCi-IG-1M4"/>
@@ -77,8 +77,8 @@
                         <outlet property="password" destination="fZz-Nb-0Mn" id="SuD-dD-BcM"/>
                         <outlet property="riderLabel" destination="9bG-cq-GSn" id="k7D-0g-2Ej"/>
                         <outlet property="signupButton" destination="oce-Ls-jvn" id="aTn-k4-Eag"/>
-                        <outlet property="switch" destination="3Xa-OT-JdF" id="lGU-KA-q5F"/>
                         <outlet property="toggleSignupButton" destination="JS5-kO-xdA" id="1FO-hY-Ric"/>
+                        <outlet property="userStatus" destination="3Xa-OT-JdF" id="i7Y-FR-qX6"/>
                         <outlet property="username" destination="nnR-wV-HSj" id="jcn-04-Ofn"/>
                     </connections>
                 </viewController>
