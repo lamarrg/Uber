@@ -80,11 +80,59 @@
                         <outlet property="toggleSignupButton" destination="JS5-kO-xdA" id="1FO-hY-Ric"/>
                         <outlet property="userStatus" destination="3Xa-OT-JdF" id="i7Y-FR-qX6"/>
                         <outlet property="username" destination="nnR-wV-HSj" id="jcn-04-Ofn"/>
+                        <segue destination="Asi-xD-o3N" kind="show" identifier="loginRider" id="jH5-NY-IPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="313.5" y="137.5"/>
+        </scene>
+        <!--Rider View Controller-->
+        <scene sceneID="7bn-Rm-Tvh">
+            <objects>
+                <viewController title="Rider View Controller" id="Asi-xD-o3N" customClass="RiderViewController" customModule="Uber" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bA5-hA-y9c"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Cw-pm-yuX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O52-au-dod">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-SE-j67">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Uber" id="FtW-1F-Evv">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dq4-2l-5hz">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="logoutRider" id="57m-ux-qt0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hHa-aF-dhk">
+                                <rect key="frame" x="47" y="84" width="281" height="241"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKm-CD-U3C">
+                                <rect key="frame" x="120" y="359" width="134" height="30"/>
+                                <state key="normal" title="Call an Uber"/>
+                                <connections>
+                                    <action selector="callUber:" destination="Asi-xD-o3N" eventType="touchUpInside" id="gUn-IC-HaQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="callUberButton" destination="kKm-CD-U3C" id="xsP-ch-19z"/>
+                        <outlet property="map" destination="hHa-aF-dhk" id="flI-aG-RVK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eG-8z-iNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.5" y="-25.5"/>
         </scene>
     </scenes>
 </document>
