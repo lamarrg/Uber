@@ -63,8 +63,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         
                     } else {
                         
-                        self.performSegueWithIdentifier("loginRider", sender: self)
+                        if user["isDriver"] as? Bool  == true {
+                            
+                            self.performSegueWithIdentifier("loginDriver", sender: self)
                         
+                        } else {
+                        
+                            self.performSegueWithIdentifier("loginRider", sender: self)
+                     
+                        }
                     }
                     
                 })
@@ -73,9 +80,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
                 PFUser.logInWithUsernameInBackground(username.text!, password: password.text!, block: { (user: PFUser?, error: NSError?) -> Void in
                     
-                    if user != nil {
+                    if let user = user {
+                        
+                        if user["isDriver"] as! Bool == true {
+                            
+                            self.performSegueWithIdentifier("loginDriver", sender: self)
+                        
+                        } else {
                         
                         self.performSegueWithIdentifier("loginRider", sender: self)
+                        
+                        }
                         
                     
                     } else {
@@ -171,7 +186,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if PFUser.currentUser() != nil  {
         
-            self.performSegueWithIdentifier("loginRider", sender: self)
+            if PFUser.currentUser()!["isDriver"]! as! Bool == true {
+                
+                self.performSegueWithIdentifier("loginDriver", sender: self)
+            
+            } else {
+            
+                self.performSegueWithIdentifier("loginRider", sender: self)
+            
+            }
             
         }
         

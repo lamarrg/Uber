@@ -81,6 +81,7 @@
                         <outlet property="userStatus" destination="3Xa-OT-JdF" id="i7Y-FR-qX6"/>
                         <outlet property="username" destination="nnR-wV-HSj" id="jcn-04-Ofn"/>
                         <segue destination="Asi-xD-o3N" kind="show" identifier="loginRider" id="jH5-NY-IPZ"/>
+                        <segue destination="zwx-hu-GvB" kind="show" identifier="loginDriver" id="Vz5-HN-MWz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,7 +116,7 @@
                                 <rect key="frame" x="47" y="84" width="281" height="241"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKm-CD-U3C">
-                                <rect key="frame" x="120" y="359" width="134" height="30"/>
+                                <rect key="frame" x="102" y="359" width="171" height="30"/>
                                 <state key="normal" title="Call an Uber"/>
                                 <connections>
                                     <action selector="callUber:" destination="Asi-xD-o3N" eventType="touchUpInside" id="gUn-IC-HaQ"/>
@@ -134,5 +135,100 @@
             </objects>
             <point key="canvasLocation" x="901.5" y="-25.5"/>
         </scene>
+        <!--Driver View Controller-->
+        <scene sceneID="1zN-PU-UmU">
+            <objects>
+                <tableViewController title="Driver View Controller" id="TZB-7s-mcG" customClass="DriverViewController" customModule="Uber" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fd6-xo-4a9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="qN0-p0-Zpn">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qN0-p0-Zpn" id="bwm-iA-G2V">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="UIK-Ia-gIO" kind="show" identifier="showViewRequests" id="KN6-S9-jZ3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TZB-7s-mcG" id="Km0-vy-JRj"/>
+                            <outlet property="delegate" destination="TZB-7s-mcG" id="Xg8-mA-dUr"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Requests" id="evi-xd-Vji">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="boc-tq-MKW">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="logoutDriver" id="qg2-uH-wkZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6g-2e-02I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449.5" y="708.5"/>
+        </scene>
+        <!--View Request-->
+        <scene sceneID="aTl-Tn-CoH">
+            <objects>
+                <viewController title="View Request" id="UIK-Ia-gIO" customClass="RequestViewController" customModule="Uber" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6qg-fD-Vfk"/>
+                        <viewControllerLayoutGuide type="bottom" id="mna-Gd-adr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v06-f3-hed">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2gK-9p-3FZ">
+                                <rect key="frame" x="43" y="102" width="288" height="258"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sla-oY-OfB">
+                                <rect key="frame" x="142" y="399" width="91" height="30"/>
+                                <state key="normal" title="Pick up Rider"/>
+                                <connections>
+                                    <action selector="pickUpRider:" destination="UIK-Ia-gIO" eventType="touchUpInside" id="h4N-tD-zlw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="map" destination="2gK-9p-3FZ" id="XKW-9l-wgH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCy-cL-BRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2001.5" y="708.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FO2-Z8-549">
+            <objects>
+                <navigationController id="zwx-hu-GvB" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZPL-oz-nt7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TZB-7s-mcG" kind="relationship" relationship="rootViewController" id="Gel-fB-q8V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIN-eU-N49" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.5" y="790.5"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="57m-ux-qt0"/>
+    </inferredMetricsTieBreakers>
 </document>
